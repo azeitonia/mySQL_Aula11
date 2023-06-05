@@ -1,54 +1,3 @@
-/* para entrar no mysql no cmd: mySQL -u aluno -p || senha: senacrs */
-/* no pc de casa usa root ao inves de aluno || em casa se n tiver senha só dar enter */
-
-/* cria uma database chamada aula14 e nela cria uma tabela chamada drinks que já contém preco e nome */
-
-create database if not exists aula14;
-create database aula14;
-use aula14;
-
-create table drinks
-(
-    preco DECIMAL(9,2),
-    nome VARCHAR(40)
-);
-
-/* altera a tabela drinks adicionando uma coluna chamada id e diz q é chave primaria */
-
-DESC drinks;
-
-ALTER TABLE drinks
-ADD COLUMN id INT FIRST,
-ADD PRIMARY KEY(id);
-
-DESC drinks;
-
-/* altera a tabela drinks e adiciona uma coluna chamada notas depois da coluna preco */
-
-DESC drinks;
-
-ALTER TABLE drinks
-ADD COLUMN nota INT NOT NULL after preco;
-
-DESC drinks;
-
-/* altera a tabela drinks e renomeia ela para bebidas e mostra as tabelas que tem */
-
-ALTER TABLE drinks
-RENAME TO bebidas;
-
-SHOW TABLES;
-
-/* muda o campo descricao do "nome" para varchar(50) not null, o CHANGE permite mudar o nome e a descrição */
-
-DESC bebidas;
-
-ALTER TABLE bebidas
-CHANGE COLUMN nome descricao VARCHAR(50) NOT NULL;
-
-DESC bebidas;
-
-
 /* ----------------------------------------------TRABALHO--------------------------------------------------- */
 
 create database if not exists trabalho1;
@@ -164,4 +113,3 @@ ADD COLUMN id_veiculo VARCHAR(30);
 INSERT INTO pessoa (cpf, nome, telefone, cidade, id_veiculo) VALUES ('022.930.940-25','Mario Antônio Soares Coelho Fialho','(53)991421348','Pelotas','1');
 INSERT INTO pessoa (cpf, nome, telefone, cidade, id_veiculo) VALUES ('023.523.470-16','Natanaela Vasconcelos Galli','(53)991662467','Pelotas','2');
 INSERT INTO pessoa (cpf, nome, telefone, cidade, id_veiculo) VALUES ('024.020.710-44','Luano Soares Coelho','(53)991392452','Pelotas','3');
-
